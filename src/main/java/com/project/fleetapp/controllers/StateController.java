@@ -30,7 +30,7 @@ public class StateController {
 		List<State> stateList= stateService.getStates();
 		State s= stateList.get(0);
 		model.addAttribute("states", stateList);
-		System.out.println(stateList.get(1));
+		//System.out.println(stateList.get(1));
 		//stateList.forEach(n -> System.out.println(n)); 
 		
         List<Country> countryList= countryService.getCountries();
