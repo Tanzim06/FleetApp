@@ -65,7 +65,7 @@ public class StateController {
 	}
 
 	@RequestMapping(value="/states/delete", method ={RequestMethod.DELETE, RequestMethod.GET})
-	public String update(Integer id) {
+	public String delete(Integer id) {
 		
 		stateService.delete(id);
 		

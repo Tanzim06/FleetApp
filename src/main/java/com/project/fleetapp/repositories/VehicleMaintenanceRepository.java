@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.project.fleetapp.models.VehicleMaintenance;
 
 @Repository
-public interface VehicleMaintanenceRepository extends JpaRepository<VehicleMaintenance, Integer> {
+public interface VehicleMaintenanceRepository extends JpaRepository<VehicleMaintenance, Integer> {
 
 }

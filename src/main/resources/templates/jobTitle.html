@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org">
 
 <head>
   <meta charset="utf-8">
@@ -9,7 +11,7 @@
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
   <link rel="shortcut icon" href="img/favicon.png">
 
-  <title>Vehicle Type</title>
+  <title>Job Title Page</title>
 
   <!-- Bootstrap CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -49,7 +51,7 @@
       </div>
 
       <!--logo start-->
-      <a href="index.html" class="logo">Nice <span class="lite">Admin</span></a>
+      <a th:href="@{/index}" class="logo">Nice <span class="lite">Admin</span></a>
       <!--logo end-->
 
       <div class="nav search-row" id="top_menu">
@@ -268,15 +270,15 @@
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="profile-ava">
-                                <img alt="" src="img/avatar1_small.jpg">
+                                <img alt="" th:src="@{'/img/photos/' + ${#authentication.getPrincipal().getUsername()} + '.jpg'}" height="38" width="38">
                             </span>
-                            <span class="username">Jenifer Smith</span>
+                            <span class="username" th:text="${#authentication.getPrincipal().getUsername()}">Guest</span>
                             <b class="caret"></b>
                         </a>
             <ul class="dropdown-menu extended logout">
               <div class="log-arrow-up"></div>
               <li class="eborder-top">
-                <a href="#"><i class="icon_profile"></i> My Profile</a>
+                <a th:href="@{/profile}"><i class="icon_profile"></i> My Profile</a>
               </li>
               <li>
                 <a href="#"><i class="icon_mail_alt"></i> My Inbox</a>
@@ -288,7 +290,7 @@
                 <a href="#"><i class="icon_chat_alt"></i> Chats</a>
               </li>
               <li>
-                <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
+                <a th:href="@{/logout}"><i class="icon_key_alt"></i> Log Out</a>
               </li>
               <li>
                 <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
@@ -311,7 +313,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu">
                   <li class="active">
-                      <a class="" href="index.html">
+                      <a class="" th:href="@{/index}">
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
                       </a>
@@ -323,10 +325,10 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" th:href="@{/vehicle}">Vehicle Data</a></li>
-                          <li><a class="" th:href="@{/vehicle_maintenance}">Maintenance</a></li>
-                          <li><a class="" th:href="@{/vehicle_movement}">Movement</a></li>
-                          <li><a class="" th:href="@{/vehicle_hire}">Hires</a></li>
+                          <li><a class="" th:href="@{/vehicles}">Vehicle Data</a></li>
+                          <li><a class="" th:href="@{/vehicleMaintenances}">Maintenance</a></li>
+                          <li><a class="" th:href="@{/vehicleMovements}">Movement</a></li>
+                          <li><a class="" th:href="@{/vehicleHires}">Hires</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -336,10 +338,10 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" th:href="@{/vehicle_make}">Vehicle Make</a></li>
-                          <li><a class="" th:href="@{/vehicle_type}">vehicle Types</a></li>
-                          <li><a class="" th:href="@{/vehicle_model}">Vehicle Models</a></li>
-                          <li><a class="" th:href="@{/vehicle_status}">Status Values</a></li>
+                          <li><a class="" th:href="@{/vehicleMakes}">Vehicle Make</a></li>
+                          <li><a class="" th:href="@{/vehicleTypes}">vehicle Types</a></li>
+                          <li><a class="" th:href="@{/vehicleModels}">Vehicle Models</a></li>
+                          <li><a class="" th:href="@{/vehicleStatuses}">Status Values</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -350,9 +352,9 @@
                       </a>
                       <ul class="sub">
                           <li><a class="" th:href="@{/employees}">Employees</a></li>
-                          <li><a class="" th:href="@{/client}">Clients</a></li>
+                          <li><a class="" th:href="@{/clients}">Clients</a></li>
                           <li><a class="" th:href="@{/suppliers}">Suppliers</a></li>
-                          <li><a class="" th:href="@{/contact}">Contacts</a></li>
+                          <li><a class="" th:href="@{/contacts}">Contacts</a></li>
                           <li><a class="" th:href="@{/user}">Users</a></li>
                       </ul>
                   </li>
@@ -363,8 +365,8 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" th:href="@{/job_title}">Job Title</a></li>
-                          <li><a class="" th:href="@{/employee_type}">Employee Types</a></li>
+                          <li><a class="" th:href="@{/jobTitles}">Job Title</a></li>
+                          <li><a class="" th:href="@{/employeeTypes}">Employee Types</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -374,8 +376,8 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" th:href="@{/invoice}">Invoice</a></li>
-                          <li><a class="" th:href="@{/invoice_status}">Invoice Status Values</a></li>
+                          <li><a class="" th:href="@{/invoices}">Invoice</a></li>
+                          <li><a class="" th:href="@{/invoiceStatuses}">Invoice Status Values</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -387,7 +389,7 @@
                       <ul class="sub">
                           <li><a class="" th:href="@{/countries}">Countries</a></li>
                           <li><a class="" th:href="@{/states}">States</a></li>
-                          <li><a class="" th:href="@{/location}">Location</a></li>
+                          <li><a class="" th:href="@{/locations}">Location</a></li>
                       </ul>
                   </li>
               </ul>
@@ -403,14 +405,39 @@
           <div class="col-lg-12">
             <h3 class="page-header"><i class="fa fa fa-bars"></i> Pages</h3>
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+              <li><i class="fa fa-home"></i><a th:href="@{/index}">Home</a></li>
               <li><i class="fa fa-bars"></i>Pages</li>
               <li><i class="fa fa-square-o"></i>Pages</li>
             </ol>
           </div>
         </div>
         <!-- page start-->
-        <h1>This is Vehicle Type page</h1>
+          <h1>List of Job Title</h1>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add Position</button>
+          <table class="table">
+              <thead>
+              <tr>
+                  <th>Id</th>
+                  <th>Description</th>
+                  <th>Details</th>
+                  <td>Action</td>
+              </tr>
+              </thead>
+              <tbody>
+              <tr th:each="jobTitle:${jobTitles}">
+                  <td th:text="${jobTitle.id}"></td>
+                  <td th:text="${jobTitle.description}"></td>
+                  <td th:text="${jobTitle.details}"></td>
+                  <td>
+                      <div>
+                          <a th:href="@{/jobTitles/findById/(id=${jobTitle.id})}" class="btn btn-primary" id="editButton"><i class="icon_pencil-edit"></i></a>
+                          <a th:href="@{/jobTitles/findById/(id=${jobTitle.id})}" class="btn btn-success" id="detailsButton"><i class="icon_document_alt"></i></a>
+                          <a th:href="@{/jobTitles/delete/(id=${jobTitle.id})}" class="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
+                      </div>
+                  </td>
+              </tr>
+              </tbody>
+          </table>
         <!-- page end-->
       </section>
     </section>
@@ -428,6 +455,129 @@
     </div>
   </section>
   <!-- container section end -->
+  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Add New</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <form th:action="@{/jobTitles/addNew}" method="post">
+                      <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Id:</label>
+                          <input type="text" class="form-control" id="recipient-name" name="id" readonly="readonly">
+                      </div>
+                      <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Description:</label>
+                          <input type="text" class="form-control" id="recipient-name" name="description">
+                      </div>
+                      <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Details:</label>
+                          <input type="text" class="form-control" id="recipient-name" name="details">
+                      </div>
+                      <div class="form-group">
+                          <input type="submit" value="add" class="btn btn-primary">
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Update vehicleType</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <form th:action="@{/jobTitles/update}" method="put">
+
+                      <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Id:</label>
+                          <input type="text" class="form-control" id="idEdit" name="id" readonly="readonly">
+                      </div>
+                      <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Description:</label>
+                          <input type="text" class="form-control" id="descriptionEdit" name="description">
+                      </div>
+                      <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Details:</label>
+                          <input type="text" class="form-control" id="detailsEdit" name="details">
+                      </div>
+                      <div class="form-group">
+                          <input type="submit" value="save" class="btn btn-primary">
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <form>
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Details record</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                      <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Id:</label>
+                          <input type="text" class="form-control" id="idDetails" name="id" readonly="readonly">
+                      </div>
+                      <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Description:</label>
+                          <input type="text" class="form-control" id="descriptionDetails" name="description">
+                      </div>
+                      <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Details:</label>
+                          <input type="text" class="form-control" id="detailsDetails" name="details">
+                      </div>
+                      <div class="form-group">
+                          <label class="col-form-label">Last Updated By:</label>
+                          <input type="text" class="form-control" id="lastModifiedByDetails" name="lastModifiedBy" readonly>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-form-label">Last Updated On:</label>
+                          <input type="text" class="form-control" id="lastModifiedDateDetails" name="lastModifiedDate" readonly>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </form>
+  </div>
+
+  <div class="modal" id="deleteModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title">Confirm delete</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <p>Are you sure to delete this?</p>
+              </div>
+              <div class="modal-footer">
+                  <a type="button" id="confirmDeleteButton" class="btn btn-primary" href="">Yes</a>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
   <!-- javascripts -->
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -436,7 +586,7 @@
   <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
   <!--custome script for all page-->
   <script src="js/scripts.js"></script>
-
+  <script src="js/jobTitle.js"></script>
 
 </body>
 

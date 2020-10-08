@@ -1,17 +1,19 @@
 $('document').ready(function() {
-	
-	$('table #editButton').on('click',function(event){		
-		event.preventDefault();		
-		var href= $(this).attr('href');		
+
+
+
+$('table  #editButton').on('click',function(event){
+		event.preventDefault();
+		var href= $(this).attr('href');
 		$.get(href, function(state, status){
 			$('#idEdit').val(state.id);
-			$('#ddlCountryEdit').val(state.countryId);
+			$('#ddlCountryEdit').val(state.countryid);
 			$('#capitalEdit').val(state.capital);
-			$('#codeEdit').val(state.code);
+            $('#codeEdit').val(state.code);
 			$('#nameEdit').val(state.name);
 			$('#detailsEdit').val(state.details);
-		});			
-		$('#editModal').modal();		
+		});
+		$('#editModal').modal();
 	});
 	
 	$('table #detailsButton').on('click',function(event) {
@@ -19,7 +21,7 @@ $('document').ready(function() {
 		var href= $(this).attr('href');		
 		$.get(href, function(state, status){
 			$('#idDetails').val(state.id);
-			$('#ddlCountryDetails').val(state.countryId);			
+			$('#ddlCountryDetails').val(state.countryid);
 			$('#nameDetails').val(state.name);
 			$('#detailsDetails').val(state.details);
 			$('#lastModifiedByDetails').val(state.lastModifiedBy);
@@ -28,7 +30,7 @@ $('document').ready(function() {
 		$('#detailsModal').modal();		
 	});	
 	
-	$('.table #deleteButton').on('click',function(event) {
+	$('table #deleteButton').on('click',function(event) {
 		event.preventDefault();
 		var href= $(this).attr('href');
 		$('#confirmDeleteButton').attr('href', href)
