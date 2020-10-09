@@ -355,7 +355,7 @@
                           <li><a class="" th:href="@{/clients}">Clients</a></li>
                           <li><a class="" th:href="@{/suppliers}">Suppliers</a></li>
                           <li><a class="" th:href="@{/contacts}">Contacts</a></li>
-                          <li><a class="" th:href="@{/user}">Users</a></li>
+                          <!--<li><a class="" th:href="@{/user}">Users</a></li>-->
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -412,11 +412,12 @@
           </div>
         </div>
         <!-- page start-->
+          <h1> Vehicle Hire List</h1>
           <div class="row">
               <div class="col-lg-12">
                   <section class="panel">
                       <header class="panel-heading">
-                          Vehicle Hire Details
+                          Vehicle Hire
                       </header>
                       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add New</button>
 
@@ -437,7 +438,7 @@
                               <td>
                                   <div class="btn-group">
                                       <a class="btn btn-primary" id="editButton" th:href="@{/vehicleHires/findById/(id=${vehicleHires.id})}"><i class="icon_pencil-edit"></i></a>
-                                     <!-- <a class="btn btn-success" id="detailsButton" th:href="@{/vehicleHires/findById/(id=${vehicleHires.id})}"><i class="icon_document_alt"></i></a> -->
+                                      <a class="btn btn-success" id="detailsButton" th:href="@{/vehicleHires/findById/(id=${vehicleHires.id})}"><i class="icon_document_alt"></i></a>
                                       <a class="btn btn-danger"  id="deleteButton" th:href="@{/vehicleHires/delete/(id=${vehicleHires.id})}"><i class="icon_close_alt2"></i></a>
                                   </div>
                               </td>
@@ -685,12 +686,125 @@
                               </td>
                           </tr>
                       </table>
-                      <button type="submit" class="btn btn-primary">Sign in</button>
                   </div>
 
                   <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                       <button type="submit" class="btn btn-primary">Save</button>
+                  </div>
+              </div>
+          </div>
+      </form>
+  </div>
+
+  <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <form th:action="@{/vehicleHires/update}" method="put">
+          <div class="modal-dialog modal-lg" role="document" style="width:70%">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Update Vehicle Hire</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+
+                  <div class="modal-body">
+                      <table width="100%">
+                          <tr>
+                              <td width="50%">
+                                  <div class="form-group row">
+                                      <label for="idEdit" class="col-sm-4 col-form-label">Id: </label>
+                                      <div class="col-sm-6">
+                                          <input type="text" class="form-control" id="idDetails" name="id" placeholder="Id" readonly>
+                                      </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                      <label for="ddlVehicleDetails" class="col-sm-4 col-form-label">Vehicle: </label>
+                                      <div class="col-sm-6">
+                                          <select id="ddlVehicleDetails" name="vehicleid" class="form-control">
+                                              <option>-SELECT-</option>
+                                              <option th:each="vehicle : ${vehicles}"
+                                                      th:value="${vehicle.id}"
+                                                      th:text="${vehicle.name}">
+                                              </option>
+                                          </select>
+                                      </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                      <label for="ddlClientDetails" class="col-sm-4 col-form-label">Client: </label>
+                                      <div class="col-sm-6">
+                                          <select  id="ddlClientDetails" name="clientid" class="form-control" >
+                                              <option>-SELECT-</option>
+                                              <option th:each="client : ${clients}"
+                                                      th:value="${client.id}"
+                                                      th:text="${client.name}">
+                                              </option>
+                                          </select>
+                                      </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                      <label for="dateOutDetails" class="col-sm-4 col-form-label">Date Out: </label>
+                                      <div class="col-sm-6">
+                                          <input type="date" class="form-control" id="dateOutDetails" name="dateOut" placeholder="Date Out">
+                                      </div>
+                                  </div>
+                                  <div class="form-group row">
+                                      <label for="timeOutDetails" class="col-sm-4 col-form-label">Time Out:</label>
+                                      <div class="col-sm-6">
+                                          <input type="text" class="form-control" id="timeOutDetails" name="timeOut" placeholder="Time Out" rows="2">
+                                      </div>
+                                  </div>
+                              </td>
+                              <td width="50%" style="padding-left:10px">
+
+                                  <div class="form-group row">
+                                      <label for="ddlLocationDetails" class="col-sm-4 col-form-label">Destination: </label>
+                                      <div class="col-sm-6">
+                                          <select id="ddlLocationDetails" name="locationid" class="form-control">
+                                              <option>-SELECT-</option>
+                                              <option th:each="location : ${locations}"
+                                                      th:value="${location.id}"
+                                                      th:text="${location.description}">
+                                              </option>
+                                          </select>
+                                      </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                      <label for="dateInDetails" class="col-sm-4 col-form-label">Date In: </label>
+                                      <div class="col-sm-6">
+                                          <input type="date" class="form-control" id="dateInDetails" name="dateIn" placeholder="Date In">
+                                      </div>
+                                  </div>
+                                  <div class="form-group row">
+                                      <label for="timeInDetails" class="col-sm-4 col-form-label">Time In: </label>
+                                      <div class="col-sm-6">
+                                          <input type="text" class="form-control" id="timeInDetails" name="timeIn" placeholder="Time In">
+                                      </div>
+                                  </div>
+                                  <div class="form-group row">
+                                      <label for="priceDetails" class="col-sm-4 col-form-label">Price: </label>
+                                      <div class="col-sm-6">
+                                          <input type="text" class="form-control" id="priceDetails" name="price" placeholder="Price">
+                                      </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                      <label for="remarksDetails" class="col-sm-4 col-form-label">Remarks</label>
+                                      <div class="col-sm-6">
+                                          <textarea class="form-control" id="remarksDetails" name="remarks" placeholder="Remarks" rows="3"></textarea>
+                                      </div>
+                                  </div>
+                              </td>
+                          </tr>
+                      </table>
+                  </div>
+
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                   </div>
               </div>
           </div>

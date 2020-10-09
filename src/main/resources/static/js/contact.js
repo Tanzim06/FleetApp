@@ -17,6 +17,24 @@ $('document').ready(function(){
 
 	});
 
+	$('table #detailsButton').on('click', function(event){
+    		event.preventDefault();
+    		var href= $(this).attr('href');
+    		$.get(href, function(contact, status){
+
+    			$('#idDetails').val(contact.id);
+    			$('#firstnameDetails').val(contact.firstname);
+    			$('#lastnameDetails').val(contact.lastname);
+    			$('#phoneDetails').val(contact.phone);
+    			$('#emailDetails').val(contact.email);
+    			$('#mobileDetails').val(contact.mobile);
+    			$('#remarksDetails').val(contact.remarks);
+
+    		});
+    		$('#detailsModal').modal();
+
+    	});
+
 
 	$('table #deleteButton').on('click', function(event){
 		event.preventDefault();

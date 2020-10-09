@@ -5,21 +5,21 @@ $('document').ready(function() {
 	$('table #editButton').on('click',function(event){
 		event.preventDefault();		
 		var href= $(this).attr('href');		
-		$.get(href, function(vehicleHires, status) {
-			$('#idEdit').val(vehicleHires.id);
-			$('#ddlVehicleEdit').val(vehicleHires.vehicleid);
-			$('#ddlClientEdit').val(vehicleHires.clientid);
-			$('#timeOutEdit').val(vehicleHires.timeOut);
-			$('#timeInEdit').val(vehicleHires.timeIn);
-			$('#priceEdit').val(vehicleHires.price);
-			$('#remarksEdit').val(vehicleHires.remarks);
-            $('#ddlLocationEdit').val(vehicleHires.locationid);
+		$.get(href, function(vehicleHire, status) {
+			$('#idEdit').val(vehicleHire.id);
+			$('#ddlVehicleEdit').val(vehicleHire.vehicleid);
+			$('#ddlClientEdit').val(vehicleHire.clientid);
+			$('#timeOutEdit').val(vehicleHire.timeOut);
+			$('#timeInEdit').val(vehicleHire.timeIn);
+			$('#priceEdit').val(vehicleHire.price);
+			$('#remarksEdit').val(vehicleHire.remarks);
+            $('#ddlLocationEdit').val(vehicleHire.locationid);
 
-			var dateOut= vehicleHires.dateOut.substr(0,10);
-			var dateIn= vehicleHires.dateIn.substr(0,10);
+			var dateOut= vehicleHire.dateOut.substr(0,10);
+			var dateIn= vehicleHire.dateIn.substr(0,10);
 
-			$('#dateOutEdit').val(vehicleHires.dateOut);
-			$('#dateInEdit').val(vehicleHires.dateIn);
+			$('#dateOutEdit').val(dateOut);
+			$('#dateInEdit').val(dateIn);
 
 
 		});			
@@ -29,14 +29,20 @@ $('document').ready(function() {
 	$('table #detailsButton').on('click',function(event) {
 		event.preventDefault();		
 		var href= $(this).attr('href');		
-		$.get(href, function(vehicleHires, status){
-			$('#idDetails').val(vehicleHires.id);
-			$('#ddlVehicleDetails').val(vehicleHires.vehicleid);
-			$('#date1Details').val(vehicleHires.date1.substr(0,19).replace("T", " "));
-			$('#remarksDetails').val(vehicleHires.remarks);
-			$('#date2Details').val(vehicleHires.date2.substr(0,19).replace("T", " "));
-			$('#ddlLocation1Details').val(vehicleHires.locationid1);
-			$('#ddlLocation2Details').val(vehicleHires.locationid2);
+		$.get(href, function(vehicleHire, status){
+			$('#idDetails').val(vehicleHire.id);
+            $('#ddlVehicleDetails').val(vehicleHire.vehicleid);
+            $('#ddlClientDetails').val(vehicleHire.clientid);
+            $('#timeOutDetails').val(vehicleHire.timeOut);
+            $('#timeInDetails').val(vehicleHire.timeIn);
+            $('#priceDetails').val(vehicleHire.price);
+            $('#remarksDetails').val(vehicleHire.remarks);
+            $('#ddlLocationDetails').val(vehicleHire.locationid);
+           var dateOut= vehicleHire.dateOut.substr(0,10);
+           var dateIn= vehicleHire.dateIn.substr(0,10);
+
+           $('#dateOutDetails').val(dateOut);
+           $('#dateInDetails').val(dateIn);
 		});			
 		$('#detailsModal').modal();		
 	});

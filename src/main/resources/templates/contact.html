@@ -355,7 +355,7 @@
                           <li><a class="" th:href="@{/clients}">Clients</a></li>
                           <li><a class="" th:href="@{/suppliers}">Suppliers</a></li>
                           <li><a class="" th:href="@{/contacts}">Contacts</a></li>
-                          <li><a class="" th:href="@{/user}">Users</a></li>
+                          <!--<li><a class="" th:href="@{/user}">Users</a></li>-->
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -412,7 +412,7 @@
           </div>
         </div>
         <!-- page start-->
-         <h1>List of States</h1>
+         <h1>List of Contacts</h1>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add State</button>
         <table class="table">
                 <thead>
@@ -434,6 +434,7 @@
                       <td>
                     <div>
                     <a th:href="@{/contacts/findById/(id=${contact.id})}" class="btn btn-primary" id="editButton"><i class="icon_pencil-edit"></i></a>
+                    <a th:href="@{/contacts/findById/(id=${contact.id})}" class="btn btn-success" id="detailsButton"><i class="icon_document_alt"></i></a>
                     <a th:href="@{/contacts/delete/(id=${contact.id})}" class="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
                     </div>
                     </td>
@@ -461,7 +462,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add State</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add Contact</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -520,7 +521,6 @@
               <label for="recipient-name" class="col-form-label">Id:</label>
               <input type="hidden" class="form-control" id="idEdit" name="id">
           </div>
-          <!--<input type="hidden" class="form-control" id="idEdit" name="id">-->
           <div class="form-group">
               <label for="recipient-name" class="col-form-label">Firstname:</label>
               <input type="text" class="form-control" id="firstnameEdit" name="firstname">
@@ -550,6 +550,54 @@
               </div>
   </form>
         </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Add State</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <form th:action="@{/contacts/update}" method="put">
+                      <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Id:</label>
+                          <input type="hidden" class="form-control" id="idDetails" name="id">
+                      </div>
+                      <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Firstname:</label>
+                          <input type="text" class="form-control" id="firstnameDetails" name="firstname">
+                      </div>
+                      <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Lastname:</label>
+                          <input type="text" class="form-control" id="lastnameDetails" name="lastname">
+                      </div>
+                      <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Phone:</label>
+                          <input type="text" class="form-control" id="phoneDetails" name="phone">
+                      </div>
+                      <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Email:</label>
+                          <input type="text" class="form-control" id="emailDetails" name="email">
+                      </div>
+                      <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Mobile:</label>
+                          <input type="text" class="form-control" id="mobileDetails" name="mobile">
+                      </div>
+                      <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Remarks:</label>
+                          <input type="text" class="form-control" id="remarksDetails" name="remarks">
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                  </form>
+              </div>
           </div>
       </div>
   </div>

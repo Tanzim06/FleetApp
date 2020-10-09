@@ -19,6 +19,25 @@ $('document').ready(function(){
 		
 	});
 	
+	$('table #detailsButton').on('click', function(event){
+    		event.preventDefault();
+    		var href= $(this).attr('href');
+    		$.get(href, function(client, status){
+    			$('#txtIdDetails').val(client.id);
+    			$('#txtAddressDetails').val(client.address);
+    			$('#txtCityDetails').val(client.city);
+    			$('#ddlCountryDetails').val(client.countryid);
+    			$('#txtDetailsDetails').val(client.details);
+    			$('#txtEmailDetails').val(client.email);
+    			$('#txtMobileDetails').val(client.mobile);
+    			$('#txtNameDetails').val(client.name);
+    			$('#txtPhoneDetails').val(client.phone);
+    			$('#ddlStateDetails').val(client.stateid);
+    			$('#txtWebsiteDetails').val(client.website);
+    		});
+    		$('#detailsModal').modal();
+    		
+    	});
 	
 	$('table #deleteButton').on('click', function(event){
 		event.preventDefault();

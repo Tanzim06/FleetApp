@@ -38,14 +38,51 @@ $('document').ready(function() {
 	});
 
 
+	$('table #detailsButton').on('click',function(event){
+		event.preventDefault();
+		var href= $(this).attr('href');
+$.get(href, function(employee, status) {
+            $('#txtIdDetails').val(employee.id);
+			$('#txtUsernameDetails').val(employee.username);
+			$('#ddlTitleDetails').val(employee.title);
+			$('#txtInitialsDetails').val(employee.initials);
+			$('#txtSSNDetails').val(employee.socialSecurityNumber);
+            $('#txtFirstnameDetails').val(employee.firstname);
+            $('#txtLastnameDetails').val(employee.lastname);
+            $('#txtOthernameDetails').val(employee.othername);
+            $('#ddlGenderDetails').val(employee.gender);
+            $('#ddlNationalityDetails').val(employee.countryid);
+            $('#txtAddressDetails').val(employee.address);
+            $('#txtNetWeightDetails').val(employee.netWeight);
+            $('#txtCityDetails').val(employee.city);
+            $('#txtPhoneDetails').val(employee.phone);
+            $('#ddlStateDetails').val(employee.stateid);
+            $('#txtMobileDetails').val(employee.mobile);
+            $('#ddlMaritalStatusDetails').val(employee.maritalStatus);
+            $('#txtEmailDetails').val(employee.email);
+            $('#ddlJobTitleDetails').val(employee.jobtitleid);
+            $('#ddlEmployeeTypeDetails').val(employee.employeetypeid);
+            $('#fupImageDetails').val(employee.photo);
+
+            var dateOfBirth= employee.dateOfBirth.substr(0,10);
+            var hireDate= employee.hireDate.substr(0,10);
+
+            $('#txtDateOfBirthDetails').val(dateOfBirth);
+            $('#txtHireDateDetails').val(hireDate);
+		});
+		$('#detailsModal').modal();
+		});
+
+
+
 	
 	$('.table #deleteButton').on('click',function(event) {
 		event.preventDefault();
 
 		var href= $(this).attr('href');
 		$('#confirmDeleteButton').attr('href', href)
-		
-		$('#deleteModal').modal();		
+
+		$('#deleteModal').modal();
 	});
 
 	$('.table #photoButton').on('click',function(event) {
