@@ -1,1 +1,1 @@
-[Loginpage](Tanzim06.github.com/FleetApp/Readme Photos/Loginpage.jpg)
+[Loginpage](Readme%20Photos/Loginpage.jpg)
