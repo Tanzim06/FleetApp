@@ -3,20 +3,19 @@
 Login page
 
 ![Dashboard](/Readme%20Photos/Dashboard.jpg)
-Dashboard
+
 
 ![Vehicle Management](/Readme%20Photos/Vehicale_data.jpg)
-Fig: Vehicle data management page
+
 
 ![Vehicle Update](/Readme%20Photos/Vehicle_record_update.jpg)
 ** “Add New” and “details” modal of the vehicle data Management page are almost same like vehicle record update modal
 
 ![Vehicle Maintanance](/Readme%20Photos/Maintanance.jpg)
-Fig: Vehicle Maintenance Page
+
 
 ![Vehicle Maintanance Details](/Readme%20Photos/Vehicle_maintanance_details.png)
 Fig: Vehicle maintenance details modal
-** “Add New” and “Update” modal of the vehicle maintenance page are almost same like vehicle maintenance details modal
 
 ![Vehicle Movements](/Readme%20Photos/Vahicle_movements.jpg)
 Fig: Vehicle movement page
