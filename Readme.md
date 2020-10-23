@@ -73,7 +73,7 @@ Fig: Vehicle hire details modal
 
 ![Invoice list page](/Readme%20Photos/Invoice_list.jpg)
 
-![Invoice details modal](/Readme%20Photos/Invoice_details.png)
+![Invoice details modal](/Readme%20Photos/invoice_details.png)
 **“Add New” and “Edit” modal of the Invoice list page are almost same like Invoice list page’s details modal
 
 ![Invoice status page](/Readme%20Photos/Invoice_Status.jpg)
