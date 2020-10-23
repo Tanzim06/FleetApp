@@ -18,7 +18,7 @@ Fig: Vehicle Maintenance Page
 Fig: Vehicle maintenance details modal
 **“Add New” and “Update” modal of the vehicle maintenance page are almost same like vehicle maintenance details modal
 
-![Vehicle Movements](/Readme%20Photos/Vehicle_movements.jpg)
+![Vehicle Movements](/Readme%20Photos/Vahicle_movements.jpg)
 Fig: Vehicle movement page
 
 ![Vehicle Movement Details](/Readme%20Photos/Vehicle_movement_details.jpg)
