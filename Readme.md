@@ -36,7 +36,7 @@ Fig: Vehicle hire details modal
 
 ![Vehicle make edit page](/Readme%20Photos/Vehicle_Make_edit.jpg)
 
-![Vehicle make details page](/Readme%20Photos/Vehicle_Make_details.jpg)
+![Vehicle make details page](/Readme%20Photos/Vehicle_make_details.jpg)
 **“Add New” modal of the Vehicle make page are almost same like vehicle make edit modal
 
 **“Add New”, “Edit” and “Details” modal of the Vehicle Type, Vehicle Model and Status Values page are almost same like vehicle make pages’ modals
@@ -73,7 +73,7 @@ Fig: Vehicle hire details modal
 
 ![Invoice list page](/Readme%20Photos/Invoice_list.jpg)
 
-![Invoice details modal](/Readme%20Photos/Invoice_details.jpg)
+![Invoice details modal](/Readme%20Photos/Invoice_details.png)
 **“Add New” and “Edit” modal of the Invoice list page are almost same like Invoice list page’s details modal
 
 ![Invoice status page](/Readme%20Photos/Invoice_Status.jpg)
