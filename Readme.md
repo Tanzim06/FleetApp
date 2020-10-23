@@ -14,7 +14,7 @@ Fig: Vehicle data management page
 ![Vehicle Maintanance](/Readme%20Photos/Maintanance.jpg)
 Fig: Vehicle Maintenance Page
 
-![Vehicle Maintanance Details](/Readme%20Photos/Vehicle_maintanance_details.jpg)
+![Vehicle Maintanance Details](/Readme%20Photos/Vehicle_maintanance_details.png)
 Fig: Vehicle maintenance details modal
 **“Add New” and “Update” modal of the vehicle maintenance page are almost same like vehicle maintenance details modal
 
@@ -61,7 +61,7 @@ Fig: Vehicle hire details modal
 ![Contact  details modal](/Readme%20Photos/List_of_contact_details.jpg)
 **“Add New” and “Edit” modal of the List of contact page are almost same like List of contact page’s details modal
 
-![Job_title](/Readme%20Photos/job_title_page.png)
+![Job_title](/Readme%20Photos/job_title_page.jpg)
 
 ![Job_title edit modal](/Readme%20Photos/job_title_edit.jpg)
 **“Add New” modal of the Job title page and Employee Type page are almost same like Job title page’s details modal
